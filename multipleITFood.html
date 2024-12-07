@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene
+      mindar-image="imageTargetSrc: https://raw.githubusercontent.com/xab-bax/Demo/main/Food%20Targets/MultipleFoodTargets.mind;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+        <!-- 3D Models -->
+        <a-asset-item id="burger-model" src="https://raw.githubusercontent.com/xab-bax/Demo/main/Gltf%20Food%20Items/burger/scene.gltf"></a-asset-item>
+        <a-asset-item id="fries-model" src="https://raw.githubusercontent.com/xab-bax/Demo/main/Gltf%20Food%20Items/FrenchFries/scene.gltf"></a-asset-item>
+        <a-asset-item id="pasta-model" src="https://raw.githubusercontent.com/xab-bax/Demo/main/Gltf%20Food%20Items/pasta_bowl_-_photocatch/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!-- Camera -->
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <!-- Image Target 1 (Burger) -->
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model
+          src="#burger-model"
+          position="0 0 0"
+          scale="0.2 0.2 0.2"
+          rotation="90 0 0"
+        ></a-gltf-model>
+      </a-entity>
+
+      <!-- Image Target 2 (French Fries) -->
+      <a-entity mindar-image-target="targetIndex: 2">
+        <a-gltf-model
+          src="#fries-model"
+          position="0 0 0"
+          scale="3 3 3"
+          rotation="90 0 0"
+        ></a-gltf-model>
+      </a-entity>
+
+      <!-- Image Target 3 (Pasta Bowl) -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model
+          src="#pasta-model"
+          position="0 0 0"
+          scale="0.7 0.7 0.7"
+          rotation="90 0 0"
+        ></a-gltf-model>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
